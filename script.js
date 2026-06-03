@@ -202,3 +202,103 @@ result.innerHTML = "FALSCH // DER BEFUND IST UNVOLLSTÄNDIG";
 result.style.color = "#ff0000";
 }
 }
+
+let mindSequence = [];
+let testOnePassed = false;
+let testTwoPassed = false;
+let testThreePassed = false;
+
+function mindStep(word) {
+const display = document.getElementById("mindDisplay");
+const result = document.getElementById("mindResult");
+
+mindSequence.push(word);
+display.innerHTML = "SEQUENZ // " + mindSequence.join(" → ");
+
+const seq = mindSequence.join("-");
+
+if (seq === "PULS") {
+result.innerHTML = "PULS // FEHLT, ABER SUBJEKT REAGIERT";
+}
+
+else if (seq === "PULS-LICHT") {
+result.innerHTML = "LICHT // KEINE SCHUTZREAKTION";
+}
+
+else if (seq === "PULS-LICHT-BLUT") {
+result.innerHTML = "BLUT // ZIEHT SICH ZUSAMMEN";
+}
+
+else if (seq === "PULS-LICHT-BLUT-LACHEN") {
+result.innerHTML = "TEST 01 BESTANDEN // DER KÖRPER LÜGT NICHT";
+testOnePassed = true;
+}
+
+else {
+mindSequence = [];
+testOnePassed = false;
+display.innerHTML = "SEQUENZ // leer";
+result.innerHTML = "FALSCHE REIHENFOLGE // DER REFLEX STIRBT";
+}
+
+result.style.color = "#ff2a2a";
+}
+
+function mindReset() {
+mindSequence = [];
+testOnePassed = false;
+document.getElementById("mindDisplay").innerHTML = "SEQUENZ // leer";
+document.getElementById("mindResult").innerHTML = "RESET // DAS MUSTER WURDE GELÖSCHT";
+}
+
+function truthTest(choice) {
+const result = document.getElementById("truthResult");
+
+if (choice === "B") {
+result.innerHTML = "TEST 02 BESTANDEN // SMILE SUCHT NUR EINEN TRÄGER";
+testTwoPassed = true;
+} else {
+result.innerHTML = "FALSCH // DAS KLINGT ZU MENSCHLICH";
+testTwoPassed = false;
+}
+
+result.style.color = "#ff2a2a";
+}
+
+function echoTest() {
+const input = document.getElementById("echoInput").value.trim().toUpperCase();
+const result = document.getElementById("echoResult");
+
+if (input === "ESSENZ") {
+result.innerHTML = "TEST 03 BESTANDEN // ESSENZ BLEIBT";
+testThreePassed = true;
+} else {
+result.innerHTML = "FALSCH // DAS ECHO ANTWORTET NICHT";
+testThreePassed = false;
+}
+
+result.style.color = "#ff2a2a";
+}
+
+function checkArchive5Password() {
+const pass = document.getElementById("password").value.trim().toUpperCase();
+const result = document.getElementById("result");
+
+if (!testOnePassed || !testTwoPassed || !testThreePassed) {
+result.innerHTML = "ZUGRIFF VERWEIGERT // TESTS UNVOLLSTÄNDIG";
+result.style.color = "#ff0000";
+return;
+}
+
+if (
+pass === "NERVENREST" ||
+pass === "NERVEN REST" ||
+pass === "RESTNERV" ||
+pass === "REST NERV"
+) {
+window.location.href = "archive6.html";
+} else {
+result.innerHTML = "FALSCH // DAS MD HAT DEN LETZTEN BEGRIFF NOCH NICHT BESTÄTIGT";
+result.style.color = "#ff0000";
+}
+}
