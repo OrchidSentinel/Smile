@@ -156,3 +156,10 @@ clip-path: inset(55% 0 0 0);
 92% { transform: skewX(-5deg); }
 93% { transform: none; }
 }
+
+.scramble {
+color: #ff0000;
+letter-spacing: 2px;
+text-shadow: 0 0 10px red;
+animation: textShake 1s infinite;
+}
