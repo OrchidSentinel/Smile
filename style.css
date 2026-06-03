@@ -1,118 +1,192 @@
 body {
 margin: 0;
-background: #030303;
-color: #d8d8d8;
+min-height: 100vh;
+background:
+radial-gradient(circle at center, rgba(80,0,0,0.45), transparent 45%),
+linear-gradient(180deg, #050000, #000000 70%);
+color: #d7d7d7;
 font-family: "Courier New", monospace;
 overflow-x: hidden;
+}
+
+body::before {
+content: "";
+position: fixed;
+inset: 0;
+background:
+repeating-linear-gradient(
+0deg,
+rgba(255,255,255,0.03) 0px,
+rgba(255,255,255,0.03) 1px,
+transparent 2px,
+transparent 4px
+);
+pointer-events: none;
+animation: scan 0.15s infinite;
+z-index: 10;
+}
+
+body::after {
+content: "";
+position: fixed;
+inset: 0;
+background:
+radial-gradient(circle, transparent 45%, rgba(0,0,0,0.85) 100%);
+pointer-events: none;
+z-index: 9;
 }
 
 .noise {
 position: fixed;
 inset: 0;
 pointer-events: none;
-background:
-repeating-linear-gradient(
-0deg,
-rgba(255,255,255,0.03),
-rgba(255,255,255,0.03) 1px,
-transparent 1px,
-transparent 3px
-);
-animation: flicker 0.12s infinite;
-z-index: 5;
+background-image:
+repeating-radial-gradient(circle at 20% 30%, rgba(255,0,0,0.08) 0, transparent 2px),
+repeating-radial-gradient(circle at 70% 60%, rgba(255,255,255,0.04) 0, transparent 3px);
+mix-blend-mode: screen;
+opacity: 0.2;
+animation: flicker 0.08s infinite;
+z-index: 8;
 }
 
 .terminal {
-max-width: 900px;
-margin: 50px auto;
-padding: 30px;
-border: 1px solid #5c0000;
-box-shadow: 0 0 25px rgba(255,0,0,0.25);
-background: rgba(10, 0, 0, 0.78);
+position: relative;
+max-width: 880px;
+margin: 55px auto;
+padding: 35px;
+background: rgba(10, 0, 0, 0.82);
+border: 1px solid rgba(255,0,0,0.35);
+box-shadow:
+0 0 35px rgba(255,0,0,0.25),
+inset 0 0 45px rgba(255,0,0,0.08);
+z-index: 1;
 }
 
 h1 {
-color: #ff1a1a;
-font-size: 52px;
-letter-spacing: 6px;
+margin: 0 0 15px;
 text-align: center;
+color: #ff1a1a;
+font-size: 68px;
+letter-spacing: 10px;
+text-shadow:
+0 0 8px red,
+3px 0 #00ffff,
+-3px 0 #ff00ff;
 }
 
+.subtitle,
 .subline {
 text-align: center;
-color: #8f8f8f;
-margin-bottom: 40px;
+color: #777;
+letter-spacing: 4px;
+font-size: 14px;
+}
+
+p {
+line-height: 1.7;
+font-size: 17px;
+}
+
+hr {
+border: none;
+border-top: 1px solid rgba(255,0,0,0.35);
+margin: 30px 0;
 }
 
 .box {
-border: 1px solid #3a0000;
-padding: 20px;
-margin: 25px 0;
-background: rgba(20,0,0,0.6);
-}
-
-.red {
-color: #ff0000;
-text-shadow: 0 0 8px red;
-}
-
-.broken {
-animation: textShake 1.8s infinite;
-}
-
-.strike {
-text-decoration: line-through;
-color: #ff0000;
+margin: 28px 0;
+padding: 22px;
+background:
+linear-gradient(90deg, rgba(255,0,0,0.08), transparent 55%),
+rgba(0,0,0,0.45);
+border-left: 3px solid #8b0000;
+border-top: 1px solid rgba(255,0,0,0.2);
+border-bottom: 1px solid rgba(255,0,0,0.15);
 }
 
 .cracked {
 background:
-linear-gradient(90deg, rgba(255,0,0,0.08), transparent),
-rgba(12,0,0,0.85);
+repeating-linear-gradient(
+135deg,
+rgba(255,0,0,0.05) 0px,
+rgba(255,0,0,0.05) 2px,
+transparent 3px,
+transparent 9px
+),
+rgba(15,0,0,0.7);
 }
 
+.red {
+color: #ff1a1a;
+text-shadow: 0 0 10px red;
+}
+
+.distort,
+.scramble {
+color: #ff0000;
+letter-spacing: 5px;
+text-shadow:
+2px 0 #00ffff,
+-2px 0 #ff00ff,
+0 0 10px red;
+animation: shake 0.8s infinite;
+}
+
+.small {
+color: #999;
+letter-spacing: 8px;
+text-align: center;
+}
+
+.tiny,
 .hint {
-color: #777;
+color: #666;
+font-size: 13px;
 font-style: italic;
 }
 
 .login {
 text-align: center;
-margin-top: 40px;
+margin-top: 35px;
 }
 
 input {
-background: black;
+background: #020000;
 color: #ff2a2a;
 border: 1px solid #7a0000;
-padding: 12px;
-width: 260px;
+padding: 13px;
+width: 270px;
 font-family: inherit;
+letter-spacing: 2px;
+box-shadow: inset 0 0 12px rgba(255,0,0,0.25);
 }
 
 button {
-background: #170000;
+background: #160000;
 color: #ff2a2a;
 border: 1px solid #7a0000;
-padding: 12px 20px;
+padding: 13px 22px;
 font-family: inherit;
 cursor: pointer;
+letter-spacing: 2px;
 }
 
 button:hover {
-background: #3a0000;
+background: #420000;
+box-shadow: 0 0 18px rgba(255,0,0,0.45);
 }
 
-footer {
-margin-top: 50px;
-font-size: 12px;
-color: #555;
-text-align: center;
+#result,
+#sampleResult,
+#cameraResult {
+margin-top: 18px;
+color: #ff0000;
+text-shadow: 0 0 8px red;
 }
 
 .glitch {
 position: relative;
-animation: glitchMain 2s infinite;
+animation: glitchMove 2.4s infinite;
 }
 
 .glitch::before,
@@ -121,47 +195,20 @@ content: attr(data-text);
 position: absolute;
 left: 0;
 right: 0;
-opacity: 0.7;
+overflow: hidden;
+opacity: 0.75;
 }
 
 .glitch::before {
 color: #00ffff;
-transform: translate(-2px, -1px);
-clip-path: inset(0 0 45% 0);
+transform: translate(-3px, -2px);
+clip-path: inset(0 0 48% 0);
 }
 
 .glitch::after {
 color: #ff00ff;
-transform: translate(2px, 1px);
-clip-path: inset(55% 0 0 0);
-}
-
-@keyframes flicker {
-0% { opacity: 0.15; }
-50% { opacity: 0.35; }
-100% { opacity: 0.18; }
-}
-
-@keyframes textShake {
-0%, 100% { transform: translateX(0); }
-45% { transform: translateX(0); }
-46% { transform: translateX(-2px); }
-47% { transform: translateX(2px); }
-48% { transform: translateX(0); }
-}
-
-@keyframes glitchMain {
-0%, 90%, 100% { transform: none; }
-91% { transform: skewX(5deg); }
-92% { transform: skewX(-5deg); }
-93% { transform: none; }
-}
-
-.scramble {
-color: #ff0000;
-letter-spacing: 2px;
-text-shadow: 0 0 10px red;
-animation: textShake 1s infinite;
+transform: translate(3px, 2px);
+clip-path: inset(52% 0 0 0);
 }
 
 .camera {
@@ -173,5 +220,41 @@ color: #ff1a1a;
 font-size: 24px;
 letter-spacing: 4px;
 text-shadow: 0 0 12px red;
-animation: textShake 0.8s infinite;
+animation: shake 0.8s infinite;
+}
+
+footer {
+margin-top: 50px;
+text-align: center;
+color: #444;
+font-size: 12px;
+letter-spacing: 2px;
+}
+
+@keyframes scan {
+0% { opacity: 0.16; }
+50% { opacity: 0.32; }
+100% { opacity: 0.18; }
+}
+
+@keyframes flicker {
+0% { opacity: 0.12; }
+50% { opacity: 0.27; }
+100% { opacity: 0.16; }
+}
+
+@keyframes shake {
+0%, 100% { transform: translate(0,0); }
+20% { transform: translate(-1px,1px); }
+40% { transform: translate(2px,-1px); }
+60% { transform: translate(-2px,0); }
+80% { transform: translate(1px,2px); }
+}
+
+@keyframes glitchMove {
+0%, 88%, 100% { transform: none; }
+89% { transform: skewX(8deg); }
+90% { transform: skewX(-8deg); }
+91% { transform: translateX(3px); }
+92% { transform: none; }
 }
