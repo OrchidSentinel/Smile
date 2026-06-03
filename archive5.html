@@ -1,112 +1,18 @@
-<!DOCTYPE html>
-
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>SMILE // ARCHIVE 05</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="noise"></div>
-
-<main class="terminal">
-
-<h1 class="glitch" data-text="ARCHIVE 05">ARCHIVE 05</h1>
-
-<p class="subtitle">COGNITIVE LOCK // SUBJECT RESPONSE REQUIRED</p>
-
-<hr>
-
-<section class="box">
-<h2>WARNUNG</h2>
-
-<p>
-Diese Datei reagiert nicht auf Wissen.
-</p>
-
-<p>
-Sie reagiert auf Muster.
-</p>
-
-<p class="red">
-Wer zu früh versteht, wird falsch antworten.
-</p>
-</section>
-
-<section class="box cracked">
-<h2>TEST 01 // REIHENFOLGE</h2>
-
-<p class="tiny">
-Ordne die Reaktion des Körpers. Nicht die Geschichte.
-</p>
-
-<button onclick="mindStep('PULS')">PULS</button> <button onclick="mindStep('LICHT')">LICHT</button> <button onclick="mindStep('BLUT')">BLUT</button> <button onclick="mindStep('LACHEN')">LACHEN</button> <button onclick="mindReset()">RESET</button>
-
-<p id="mindDisplay">SEQUENZ // leer</p>
-<p id="mindResult"></p>
-</section>
-
-<section class="box">
-<h2>TEST 02 // FALSCHE WAHRHEITEN</h2>
-
-<p>
-Wähle die Aussage, die NICHT gelogen ist.
-</p>
-
-<button onclick="truthTest('A')">Smile macht glücklich.</button> <button onclick="truthTest('B')">Smile braucht keinen Körper.</button> <button onclick="truthTest('C')">Smile ist nur eine Droge.</button> <button onclick="truthTest('D')">Smile endet nach der Wirkung.</button>
-
-<p id="truthResult"></p>
-</section>
-
-<section class="box cracked">
-<h2>TEST 03 // ECHO</h2>
-
-<p>
-Gib das Wort ein, das übrig bleibt,
-wenn Blut, Durst und Körper versagen.
-</p>
-
-<input id="echoInput" placeholder="ECHO">
-<button onclick="echoTest()">PRÜFEN</button>
-
-<p id="echoResult"></p>
-</section>
-
-<section class="box">
-<h2>FELDSPERRE</h2>
-
-<p>
-Der letzte Schlüssel dieser Datei liegt nicht im Code.
-</p>
-
-<p>
-Er muss IC durch Gespräch oder Untersuchung bestätigt werden.
-</p>
-
-<p class="distort">
-FRAGT DAS MD, WAS BLEIBT, WENN DER KÖRPER REAGIERT, ABER NICHT MEHR LEBT.
-</p>
-
-<p class="tiny">
-Erst wenn alle drei Tests bestanden wurden, akzeptiert das Archiv den letzten Begriff.
-</p>
-</section>
-
-<section class="login">
-<input id="password" placeholder="FINAL ACCESS KEY">
-<button onclick="checkArchive5Password()">UNLOCK</button>
-<p id="result"></p>
-</section>
-
-<footer>
-SMILE // COGNITIVE LOCK // IT SMILES THROUGH THE NERVES
-</footer>
-
-</main>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><title>SMILE //
+05</title><link rel="stylesheet" href="style.css"></head><body><div class="noise"></div><div
+class="blood"></div><div class="smiles"></div><main class="terminal"> <h1>ARCHIVE 05</h1><p
+class="subtitle">COGNITIVE LOCK // MULTI SOURCE FAILURE</p><hr> <section
+class="box"><h2>MUSTER</h2><p>Wenn alle zuständig sind, ist niemand zuständig. Ordne die Stellen
+nach dem, was sie nicht beweisen können.</p><button onclick="hardPick('PD')">PD</button><button
+onclick="hardPick('FIB')">FIB</button><button onclick="hardPick('DOJ')">DOJ</button><button
+onclick="hardPick('MD')">MD</button><button onclick="hardPick('KIRCHE')">KIRCHE</button><p
+id="hardDisplay">MUSTER // leer</p><p id="hardResult"></p></section> <section class="box
+cracked"><h2>FALSCHE WAHRHEITEN</h2><button onclick="liePick('A')">Smile macht glücklich.</
+button><button onclick="liePick('B')">Smile braucht keinen Körper, nur einen Träger.</button><button
+onclick="liePick('C')">Smile endet nach der Wirkung.</button><p id="lieResult"></p></section> <section
+class="box"><h2>ECHO</h2><input id="echo" placeholder="WAS BLEIBT?"><button
+onclick="echoCheck()">PRÜFEN</button><p id="echoResult"></p><p class="tiny">Wenn Körper, Blut
+und Geist versagen, bleibt nur der Rest im System.</p></section> <input id="password"
+placeholder="FINAL LOCATION"><button onclick="checkArchive5Password()">UNLOCK</button><p
+id="result"></p> <footer>SMILE // THE LAST PLACE WAS NEVER A PERSON</footer></main><script
+src="script.js"></script></body></html>
