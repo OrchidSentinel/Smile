@@ -185,3 +185,20 @@ result.innerHTML = "FALSCH // DAS SIEBTE GLAS BLEIBT VERSCHLOSSEN";
 result.style.color = "#ff0000";
 }
 }
+
+function checkArchive4Password() {
+const pass = document.getElementById("password").value.trim().toUpperCase();
+const result = document.getElementById("result");
+
+if (
+pass === "TOTERREFLEX" ||
+pass === "TOTER REFLEX" ||
+pass === "DEADREFLEX" ||
+pass === "DEAD REFLEX"
+) {
+window.location.href = "archive5.html";
+} else {
+result.innerHTML = "FALSCH // DER BEFUND IST UNVOLLSTÄNDIG";
+result.style.color = "#ff0000";
+}
+}
