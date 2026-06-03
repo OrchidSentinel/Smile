@@ -44,26 +44,47 @@ result.style.color = "#ff0000";
 }
 }
 
-let cameraStage = 0;
+let cameraSequence = [];
 
-function adjustCamera(step) {
+function cameraAction(action) {
 const text = document.getElementById("cameraText");
 const result = document.getElementById("cameraResult");
 
-if (step === 1 && cameraStage === 0) {
-cameraStage = 1;
-text.innerHTML = "█ █ █ 7 1 8 █ // VENTURA █ █";
-result.innerHTML = "HELLIGKEIT KORRIGIERT // EIN TEIL DER PLZ WURDE SICHTBAR";
-} else if (step === 2 && cameraStage === 1) {
-cameraStage = 2;
-text.innerHTML = "█ █ █ 7 1 8 0 // VENTURA █ █";
-result.innerHTML = "KONTRAST KORRIGIERT // PLZ WIEDERHERGESTELLT";
-} else if (step === 3 && cameraStage === 2) {
-cameraStage = 3;
-text.innerHTML = "PLZ 7180 // VENTURA PLACE // ZIMMER 204";
-result.innerHTML = "BILD STABILISIERT // ORTUNG ABGESCHLOSSEN";
-} else {
-result.innerHTML = "FEHLER // FALSCHE REIHENFOLGE // FEED ZERFÄLLT";
+if (action === "reset") {
+cameraSequence = [];
+text.innerHTML =
+"█ █ █ █ █ █<br>7 1 8 0<br>2 0 4<br>5 3<br>█ █ █ █ █ █";
+result.innerHTML = "FEED RESET // ERINNERUNG GELÖSCHT";
+return;
+}
+
+cameraSequence.push(action);
+
+const sequence = cameraSequence.join("-");
+
+if (sequence === "zoom") {
+text.innerHTML =
+"█ █ █ MOT █ █<br>7 1 8 0<br>2 0 4<br>5 3<br>SMILE IS THE WAY";
+result.innerHTML = "ZOOM AKTIV // ZU VIELE DETAILS // NICHT ALLES IST WAHR";
+}
+
+else if (sequence === "zoom-focus") {
+text.innerHTML =
+"MOTEL █ █ █<br>VENTURA █ █<br>ROOM █ █ █<br>SMILE IS THE WAY<br>THE BLOOD OPENS";
+result.innerHTML = "BILD GESCHÄRFT // DER KÖDER WIRD SICHTBAR";
+}
+
+else if (sequence === "zoom-focus-light") {
+text.innerHTML =
+"MOTEL // VENTURA PLACE<br>ROOM // 204<br>FRAME // 241<br>SUBJECT // STILL SMILING";
+result.innerHTML = "BELICHTUNG STABIL // DER RAUM WURDE GEFUNDEN";
+}
+
+else {
+cameraSequence = [];
+text.innerHTML =
+"FEED CORRUPTED<br>FALSCHE REIHENFOLGE<br>█ █ █ █ █ █<br>RESET REQUIRED";
+result.innerHTML = "FEHLER // DIE AUFNAHME HAT ZURÜCKGELÄCHELT";
 }
 
 result.style.color = "#ff2a2a";
@@ -73,7 +94,7 @@ function checkArchive2Password() {
 const pass = document.getElementById("password").value.trim().toUpperCase();
 const result = document.getElementById("result");
 
-if (pass === "ZIMMER204") {
+if (pass === "ROOM204" || pass === "ZIMMER204") {
 window.location.href = "archive3.html";
 } else {
 result.innerHTML = "FALSCH // DIE TÜR BLEIBT ZU";
