@@ -2,85 +2,106 @@
 
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>SMILE // ARCHIVE 02</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>SMILE // ARCHIVE 02</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="noise"></div>
 
 <main class="terminal">
 
-  <h1 class="glitch" data-text="ARCHIVE 02">ARCHIVE 02</h1>
+<h1 class="glitch" data-text="ARCHIVE 02">ARCHIVE 02</h1>
 
-  <p class="subline">SURVEILLANCE RECOVERY // CAMERA FEED DAMAGED</p>
+<p class="subtitle">SURVEILLANCE RECOVERY // CAMERA FEED DAMAGED</p>
 
-  <section class="box">
-    <h2>KAMERA 03 // LETZTER FEED</h2>
+<hr>
 
-```
+<section class="box">
+<h2>KAMERA 03 // FRAME 241</h2>
+
 <p>
-  Aufnahme beschädigt. Sichtfeld instabil.
-  Objekt bewegt sich nicht. Objekt atmet nicht. Objekt lächelt.
+Die Aufnahme wurde aus einem beschädigten Gerät wiederhergestellt.
+</p>
+
+<p>
+Objekt steht im Flur. Objekt bewegt sich nicht. Objekt atmet nicht.
+</p>
+
+<p class="red">
+Objekt lächelt seit 17 Minuten.
 </p>
 
 <div class="camera">
-  <p id="cameraText">█ █ █ 7 █ 8 █ // VENTURA █ █</p>
+<p id="cameraText">
+█ █ █ █ █ █<br>
+7 1 8 0<br>
+2 0 4<br>
+5 3<br>
+█ █ █ █ █ █
+</p>
 </div>
 
-<button onclick="adjustCamera(1)">Helligkeit erhöhen</button>
-<button onclick="adjustCamera(2)">Kontrast erhöhen</button>
-<button onclick="adjustCamera(3)">Bild stabilisieren</button>
+<button onclick="cameraAction('zoom')">ZOOM +</button> <button onclick="cameraAction('focus')">SCHÄRFEN</button> <button onclick="cameraAction('light')">BELICHTUNG</button> <button onclick="cameraAction('reset')">RESET</button>
 
 <p id="cameraResult"></p>
-```
+</section>
 
-  </section>
+<section class="box cracked">
+<h2>BEOBACHTER-NOTIZ</h2>
 
-  <section class="box cracked">
-    <h2>ORTSHINWEIS</h2>
-
-```
 <p>
-  Dort, wo Namen schlafen.
-  Dort, wo Fremde für eine Nacht verschwinden.
-  Dort, wo ein Zimmer mehr gesehen hat als seine Wände tragen können.
+Der Ort war niemals wichtig.
 </p>
 
-<p class="hint">
-  Sucht nicht nach dem Lächeln. Sucht nach dem Bett, das niemand mehr beziehen sollte.
-</p>
-```
-
-  </section>
-
-  <section class="box">
-    <h2>INTERNE NOTIZ</h2>
-
-```
 <p>
-  Unity sollte diesen Ort meiden.
-  Nicht wegen der Menschen.
-  Wegen dem, was dort bereits von ihnen geträumt hat.
+Nur das Zimmer.
 </p>
 
-<p class="scramble">
-  ZIMMER // 2 █ 4
+<p>
+Wer den Ort sucht, findet die falsche Tür.
 </p>
-```
 
-  </section>
+<p>
+Wer die Tür sucht, findet den falschen Raum.
+</p>
 
-  <section class="login">
-    <input id="password" placeholder="NEXT ACCESS KEY">
-    <button onclick="checkArchive2Password()">UNLOCK</button>
-    <p id="result"></p>
-  </section>
+<p class="distort">
+Wer den Raum sucht, findet die Erinnerung.
+</p>
+</section>
 
-  <footer>
-    ORCHID SENTINEL // SMILE ARCHIVE // CAMERA FEED 03
-  </footer>
+<section class="box">
+<h2>GESICHERTE FRAGMENTE</h2>
+
+<p>
+MOT████
+</p>
+
+<p>
+VENT███
+</p>
+
+<p>
+ROOM ███
+</p>
+
+<p class="tiny">
+Das Offensichtliche ist nur Köder.
+</p>
+</section>
+
+<section class="login">
+<input id="password" placeholder="NEXT ACCESS KEY">
+<button onclick="checkArchive2Password()">UNLOCK</button>
+<p id="result"></p>
+</section>
+
+<footer>
+SMILE // CAMERA 03 // THE ROOM REMEMBERS
+</footer>
 
 </main>
 
