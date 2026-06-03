@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>SMILE // ARCHIVE 03</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<main class="terminal">
+
+<h1 class="glitch" data-text="ARCHIVE 03">ARCHIVE 03</h1>
+
+<p class="subtitle">PENTHOUSE RECOVERY // LEVEL 7 // BLOOD TRACE ACTIVE</p>
+
+<hr>
+
+<section class="box">
+<h2>FUNDORT // 7073 ECLIPSE BOULEVARD</h2>
+
+<p>
+Das Penthouse wurde leer aufgefunden.
+</p>
+
+<p>
+Keine Leiche. Keine Kampfspuren. Kein Einbruch.
+</p>
+
+<p class="red">
+Nur ein Lächeln an der Scheibe.
+Von innen gezeichnet.
+Mit Blut.
+</p>
+
+<p>
+Auf dem Boden lagen sieben Gläser.
+Sechs waren leer.
+Eines war unberührt.
+</p>
+</section>
+
+<section class="box cracked">
+<h2>BLUTGLÄSER // REKONSTRUKTION</h2>
+
+<p>
+Wähle das Glas, das nicht getrunken wurde.
+</p>
+
+<button onclick="glassChoice('A')">Glas I</button> <button onclick="glassChoice('B')">Glas II</button> <button onclick="glassChoice('C')">Glas III</button> <button onclick="glassChoice('D')">Glas IV</button> <button onclick="glassChoice('E')">Glas V</button> <button onclick="glassChoice('F')">Glas VI</button> <button onclick="glassChoice('G')">Glas VII</button>
+
+<p id="glassResult"></p>
+</section>
+
+<section class="box">
+<h2>WANDTEXT</h2>
+
+<p class="distort">
+WER ALLES TRINKT, VERGISST DEN DURST.
+</p>
+
+<p>
+Darunter stand:
+</p>
+
+<p class="small">
+1 2 3 4 5 6 █
+</p>
+
+<p class="tiny">
+Das siebte Glas war nicht für den Körper.
+</p>
+</section>
+
+<section class="box">
+<h2>VERSCHLOSSENES FRAGMENT</h2>
+
+<p>
+Die Datei reagiert nicht auf Namen.
+</p>
+
+<p>
+Die Datei reagiert nicht auf Orte.
+</p>
+
+<p>
+Die Datei reagiert nur auf das,
+was im siebten Glas zurückblieb.
+</p>
+</section>
+
+<section class="login">
+<input id="password" placeholder="NEXT ACCESS KEY">
+<button onclick="checkArchive3Password()">UNLOCK</button>
+<p id="result"></p>
+</section>
+
+<footer>
+SMILE // LEVEL 7 // THE SEVENTH WAS NEVER EMPTY
+</footer>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
