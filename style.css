@@ -44,3 +44,39 @@ footer{text-align:center;color:#666;font-size:12px;margin-top:45px;letter-spacin
 @keyframes pulse{50%{filter:hue-rotate(120deg) brightness(1.4)}}
 @keyframes hue{to{filter:hue-rotate(360deg)}}
 @keyframes shake{0%,100%{transform:none}25%{transform:translate(1px,-1px)}50%{transform:translate(-2px,1px)}75%{transform:translate(2px,2px)}}
+
+.hiddenSmile{
+position:absolute;
+opacity:0.035;
+font-size:42px;
+color:#fff;
+text-decoration:none;
+z-index:50;
+cursor:pointer;
+text-shadow:0 0 8px #ff00aa;
+transition:.2s;
+}
+
+.hiddenSmile:hover{
+opacity:1;
+color:#ff00cc;
+font-size:58px;
+text-shadow:0 0 18px #ff00cc,0 0 30px cyan;
+}
+
+.smileWall{
+font-size:120px;
+text-align:center;
+letter-spacing:12px;
+animation:pulse 1s infinite;
+}
+
+.smileWay{
+font-size:64px;
+text-align:center;
+font-weight:bold;
+background:linear-gradient(90deg,#ff0055,#ffee00,#00ffee,#ff00ff);
+-webkit-background-clip:text;
+color:transparent;
+animation:hue 1.5s infinite;
+}
