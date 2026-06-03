@@ -128,3 +128,49 @@ function checkArchive2Password() {
     result.style.color = "#ff0000";
   }
 }
+
+function glassChoice(id) {
+const result = document.getElementById("glassResult");
+
+if (id === "A") {
+result.innerHTML = "GLAS I // leer // Blutgruppe unbekannt // Durstreaktion normal";
+}
+
+if (id === "B") {
+result.innerHTML = "GLAS II // leer // Spuren von Adrenalin // Panik vor Einnahme";
+}
+
+if (id === "C") {
+result.innerHTML = "GLAS III // leer // vampirische Enzyme erkannt";
+}
+
+if (id === "D") {
+result.innerHTML = "GLAS IV // leer // Fremdblut // keine Besonderheiten";
+}
+
+if (id === "E") {
+result.innerHTML = "GLAS V // leer // Pilzprotein instabil // Probe zerfallen";
+}
+
+if (id === "F") {
+result.innerHTML = "GLAS VI // leer // Lächelreaktion nachweisbar";
+}
+
+if (id === "G") {
+result.innerHTML = "GLAS VII // unberührt // keine Blutreste // nur Essenz";
+}
+
+result.style.color = "#ff2a2a";
+}
+
+function checkArchive3Password() {
+const pass = document.getElementById("password").value.trim().toUpperCase();
+const result = document.getElementById("result");
+
+if (pass === "ESSENZ") {
+window.location.href = "archive4.html";
+} else {
+result.innerHTML = "FALSCH // DAS SIEBTE GLAS BLEIBT VERSCHLOSSEN";
+result.style.color = "#ff0000";
+}
+}
