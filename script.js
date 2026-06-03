@@ -55,9 +55,9 @@ cameraSequence = [];
 
 ```
 text.innerHTML =
-  "█ █ █ █ █ █<br>7 0 7 3<br>ECL █ █ █ █ █<br>LEVEL █<br>█ █ █ █ █ █";
+  "█ █ █ █ █ █<br>PLZ // 7 █ 7 █<br>STREET // E C L █ █ █ █<br>FLOOR // █<br>DESTINATION // █ █ █ █ █ █ █ █ █<br>█ █ █ █ █ █";
 
-result.innerHTML = "FEED RESET // ERINNERUNG GELÖSCHT";
+result.innerHTML = "FEED RESET // DIE FAHRT BEGINNT VON VORN";
 result.style.color = "#ff2a2a";
 return;
 ```
@@ -68,35 +68,46 @@ cameraSequence.push(action);
 
 const sequence = cameraSequence.join("-");
 
-if (sequence === "zoom") {
+if (sequence === "blood") {
 text.innerHTML =
-"█ █ █ ECL █ █<br>7 0 7 3<br>ECLIP █ █ █<br>LEVEL 7<br>SMILE IS THE WAY";
+"BLUTSPUR ERKANNT<br>PLZ // 7 █ 7 3<br>STREET // E C L █ █ █ █<br>FLOOR // █<br>DESTINATION // █ █ █ █ █ █ █ █ █";
 
 ```
 result.innerHTML =
-  "ZOOM AKTIV // DIE STRASSE BEGINNT SICH ZU ERINNERN";
+  "BLUTSPUR AKTIV // DIE LETZTE ZAHL WURDE SICHTBAR";
 ```
 
 }
 
-else if (sequence === "zoom-focus") {
+else if (sequence === "blood-elevator") {
 text.innerHTML =
-"PLZ // 7073<br>ECLIPSE ███████<br>LEVEL // 7<br>████HOUSE<br>THE BLOOD OPENS";
+"AUFZUGLOG WIEDERHERGESTELLT<br>PLZ // 7073<br>STREET // ECLIPSE █████████<br>FLOOR // 7<br>DESTINATION // █ █ █ █ █ █ █ █ █";
 
 ```
 result.innerHTML =
-  "BILD GESCHÄRFT // DER KÖDER WIRD SICHTBAR";
+  "AUFZUGLOG AKTIV // ETAGE 7 WURDE NIE GEDRÜCKT";
 ```
 
 }
 
-else if (sequence === "zoom-focus-light") {
+else if (sequence === "blood-elevator-shadow") {
 text.innerHTML =
-"PLZ // 7073<br>ECLIPSE BOULEVARD<br>LEVEL // 7<br>PENTHOUSE";
+"SCHATTEN ISOLIERT<br>PLZ // 7073<br>STREET // ECLIPSE BOULEVARD<br>FLOOR // 7<br>DESTINATION // P E █ █ █ █ █ █ █";
 
 ```
 result.innerHTML =
-  "AUFNAHME WIEDERHERGESTELLT // DAS LÄCHELN WARTETE OBEN";
+  "ZWEITER SCHATTEN ERKANNT // ER STAND SCHON OBEN";
+```
+
+}
+
+else if (sequence === "blood-elevator-shadow-audio") {
+text.innerHTML =
+"FEED WIEDERHERGESTELLT<br>PLZ // 7073<br>ECLIPSE BOULEVARD<br>FLOOR // 7<br>DESTINATION // PENTHOUSE";
+
+```
+result.innerHTML =
+  "AUDIO REKONSTRUIERT // LETZTES WORT: PENTHOUSE";
 ```
 
 }
@@ -106,10 +117,10 @@ cameraSequence = [];
 
 ```
 text.innerHTML =
-  "FEED CORRUPTED<br>FALSCHE REIHENFOLGE<br>█ █ █ █ █ █<br>RESET REQUIRED";
+  "FEED CORRUPTED<br>FALSCHE REIHENFOLGE<br>DER AUFZUG HÄLT NICHT MEHR<br>RESET REQUIRED";
 
 result.innerHTML =
-  "FEHLER // DIE AUFNAHME HAT ZURÜCKGELÄCHELT";
+  "FEHLER // ETWAS HAT DIE REKONSTRUKTION BEMERKT";
 ```
 
 }
@@ -118,15 +129,15 @@ result.style.color = "#ff2a2a";
 }
 
 function checkArchive2Password() {
-  const pass = document.getElementById("password").value.trim().toUpperCase();
-  const result = document.getElementById("result");
+const pass = document.getElementById("password").value.trim().toUpperCase();
+const result = document.getElementById("result");
 
-  if (pass === "PENTHOUSE") {
-    window.location.href = "archive3.html";
-  } else {
-    result.innerHTML = "FALSCH // DIE HÖHE ANTWORTET NICHT";
-    result.style.color = "#ff0000";
-  }
+if (pass === "PENTHOUSE") {
+window.location.href = "archive3.html";
+} else {
+result.innerHTML = "FALSCH // DIE SIEBTE ETAGE ANTWORTET NICHT";
+result.style.color = "#ff0000";
+}
 }
 
 function glassChoice(id) {
