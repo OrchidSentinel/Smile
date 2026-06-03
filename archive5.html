@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>SMILE // ARCHIVE 05</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<main class="terminal">
+
+<h1 class="glitch" data-text="ARCHIVE 05">ARCHIVE 05</h1>
+
+<p class="subtitle">COGNITIVE LOCK // SUBJECT RESPONSE REQUIRED</p>
+
+<hr>
+
+<section class="box">
+<h2>WARNUNG</h2>
+
+<p>
+Diese Datei reagiert nicht auf Wissen.
+</p>
+
+<p>
+Sie reagiert auf Muster.
+</p>
+
+<p class="red">
+Wer zu früh versteht, wird falsch antworten.
+</p>
+</section>
+
+<section class="box cracked">
+<h2>TEST 01 // REIHENFOLGE</h2>
+
+<p class="tiny">
+Ordne die Reaktion des Körpers. Nicht die Geschichte.
+</p>
+
+<button onclick="mindStep('PULS')">PULS</button> <button onclick="mindStep('LICHT')">LICHT</button> <button onclick="mindStep('BLUT')">BLUT</button> <button onclick="mindStep('LACHEN')">LACHEN</button> <button onclick="mindReset()">RESET</button>
+
+<p id="mindDisplay">SEQUENZ // leer</p>
+<p id="mindResult"></p>
+</section>
+
+<section class="box">
+<h2>TEST 02 // FALSCHE WAHRHEITEN</h2>
+
+<p>
+Wähle die Aussage, die NICHT gelogen ist.
+</p>
+
+<button onclick="truthTest('A')">Smile macht glücklich.</button> <button onclick="truthTest('B')">Smile braucht keinen Körper.</button> <button onclick="truthTest('C')">Smile ist nur eine Droge.</button> <button onclick="truthTest('D')">Smile endet nach der Wirkung.</button>
+
+<p id="truthResult"></p>
+</section>
+
+<section class="box cracked">
+<h2>TEST 03 // ECHO</h2>
+
+<p>
+Gib das Wort ein, das übrig bleibt,
+wenn Blut, Durst und Körper versagen.
+</p>
+
+<input id="echoInput" placeholder="ECHO">
+<button onclick="echoTest()">PRÜFEN</button>
+
+<p id="echoResult"></p>
+</section>
+
+<section class="box">
+<h2>FELDSPERRE</h2>
+
+<p>
+Der letzte Schlüssel dieser Datei liegt nicht im Code.
+</p>
+
+<p>
+Er muss IC durch Gespräch oder Untersuchung bestätigt werden.
+</p>
+
+<p class="distort">
+FRAGT DAS MD, WAS BLEIBT, WENN DER KÖRPER REAGIERT, ABER NICHT MEHR LEBT.
+</p>
+
+<p class="tiny">
+Erst wenn alle drei Tests bestanden wurden, akzeptiert das Archiv den letzten Begriff.
+</p>
+</section>
+
+<section class="login">
+<input id="password" placeholder="FINAL ACCESS KEY">
+<button onclick="checkArchive5Password()">UNLOCK</button>
+<p id="result"></p>
+</section>
+
+<footer>
+SMILE // COGNITIVE LOCK // IT SMILES THROUGH THE NERVES
+</footer>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
