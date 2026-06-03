@@ -1,120 +1,17 @@
-<!DOCTYPE html>
-
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>SMILE // ARCHIVE 02</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="noise"></div>
-
-<main class="terminal">
-
-<h1 class="glitch" data-text="ARCHIVE 02">ARCHIVE 02</h1>
-
-<p class="subtitle">SURVEILLANCE RECOVERY // ELEVATOR FEED // PARTIAL RESTORE</p>
-
-<hr>
-
-<section class="box">
-<h2>KAMERA 03 // AUFZUG // FRAME 241</h2>
-
-<p>
-Die Aufnahme stammt aus einem beschädigten Fahrstuhl-Feed.
-</p>
-
-<p>
-Das Subjekt betritt den Aufzug um 03:17 Uhr.
-</p>
-
-<p>
-Keine weitere Person betritt den Aufzug.
-</p>
-
-<p class="red">
-Trotzdem zeigt die Kamera ab Etage 7 zwei Schatten.
-</p>
-
-<div class="camera">
-<p id="cameraText">
-█ █ █ █ █ █<br>
-PLZ // 7 █ 7 █<br>
-STREET // E C L █ █ █ █<br>
-FLOOR // █<br>
-DESTINATION // █ █ █ █ █ █ █ █ █<br>
-█ █ █ █ █ █
-</p>
-</div>
-
-<button onclick="cameraAction('blood')">BLUTSPUR SCANNEN</button> <button onclick="cameraAction('elevator')">AUFZUGLOG PRÜFEN</button> <button onclick="cameraAction('shadow')">SCHATTEN ISOLIEREN</button> <button onclick="cameraAction('audio')">AUDIO REKONSTRUIEREN</button> <button onclick="cameraAction('reset')">RESET</button>
-
-<p id="cameraResult"></p>
-</section>
-
-<section class="box cracked">
-<h2>REKONSTRUKTIONSREGEL</h2>
-
-<p>
-Nicht jedes Bild zeigt den Ort.
-</p>
-
-<p>
-Nicht jede Zahl zeigt die Tür.
-</p>
-
-<p>
-Nicht jede Stimme gehört dem Körper.
-</p>
-
-<p class="distort">
-ERST DAS BLUT. DANN DER WEG. DANN DER SCHATTEN. DANN DAS LACHEN.
-</p>
-
-<p class="tiny">
-Falsche Reihenfolge zerstört den Feed.
-</p>
-</section>
-
-<section class="box">
-<h2>BESCHÄDIGTE NOTIZ</h2>
-
-<p>
-7073
-</p>
-
-<p>
-ECLIPSE █████████
-</p>
-
-<p>
-Die siebte Etage wurde im System nie ausgewählt.
-</p>
-
-<p>
-Der Aufzug hielt trotzdem.
-</p>
-
-<p class="tiny">
-Oben befindet sich keine Zimmernummer.
-</p>
-</section>
-
-<section class="login">
-<input id="password" placeholder="NEXT ACCESS KEY">
-<button onclick="checkArchive2Password()">UNLOCK</button>
-<p id="result"></p>
-</section>
-
-<footer>
-SMILE // ELEVATOR NODE // THE SEVENTH FLOOR SMILED BACK
-</footer>
-
-</main>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><title>SMILE //
+02</title><link rel="stylesheet" href="style.css"></head><body><div class="noise"></div><div
+class="blood"></div><div class="smiles"></div><main class="terminal"> <h1>ARCHIVE 02</h1><p
+class="subtitle">CITY ROUTE // FALSE LOCATIONS // ELEVATOR MEMORY</p><hr> <section
+class="box"><h2>STADTKARTE</h2><p>Die Karte lügt. Die ersten Orte sind Köder. Folge nicht dem Ziel.
+Folge dem Irrtum.</p><button onclick="routePick('STRAND')">STRAND</button><button
+onclick="routePick('KIRCHE')">KIRCHE</button><button
+onclick="routePick('CONTINENTAL')">CONTINENTAL</button><button
+onclick="routePick('PENTHOUSE')">PENTHOUSE</button><button onclick="routePick('UWU')">UWU
+CAFE</button><button onclick="routePick('PD')">POLICE DEPARTMENT</button><button
+onclick="routeReset()">RESET</button><p id="routeDisplay">ROUTE // leer</p><p id="routeResult"></
+p></section> <section class="box cracked"><h2>REGEL</h2><p class="distort">ERST DORTHIN, WO
+NICHTS IST. DANN DORTHIN, WO MAN BEICHTET. DANN DORTHIN, WO MAN AUFSTEIGT.</p><p>7073 //
+Eclipse Boulevard // Ebene 7</p><p class="tiny">Keine Zimmernummer. Nur Höhe.</p></section>
+<input id="password" placeholder="NEXT KEY"><button onclick="checkArchive2Password()">UNLOCK</
+button><p id="result"></p> <footer>SMILE // THE SEVENTH FLOOR SMILED BACK</footer></
+main><script src="script.js"></script></body></html>
