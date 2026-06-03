@@ -1,0 +1,158 @@
+body {
+margin: 0;
+background: #030303;
+color: #d8d8d8;
+font-family: "Courier New", monospace;
+overflow-x: hidden;
+}
+
+.noise {
+position: fixed;
+inset: 0;
+pointer-events: none;
+background:
+repeating-linear-gradient(
+0deg,
+rgba(255,255,255,0.03),
+rgba(255,255,255,0.03) 1px,
+transparent 1px,
+transparent 3px
+);
+animation: flicker 0.12s infinite;
+z-index: 5;
+}
+
+.terminal {
+max-width: 900px;
+margin: 50px auto;
+padding: 30px;
+border: 1px solid #5c0000;
+box-shadow: 0 0 25px rgba(255,0,0,0.25);
+background: rgba(10, 0, 0, 0.78);
+}
+
+h1 {
+color: #ff1a1a;
+font-size: 52px;
+letter-spacing: 6px;
+text-align: center;
+}
+
+.subline {
+text-align: center;
+color: #8f8f8f;
+margin-bottom: 40px;
+}
+
+.box {
+border: 1px solid #3a0000;
+padding: 20px;
+margin: 25px 0;
+background: rgba(20,0,0,0.6);
+}
+
+.red {
+color: #ff0000;
+text-shadow: 0 0 8px red;
+}
+
+.broken {
+animation: textShake 1.8s infinite;
+}
+
+.strike {
+text-decoration: line-through;
+color: #ff0000;
+}
+
+.cracked {
+background:
+linear-gradient(90deg, rgba(255,0,0,0.08), transparent),
+rgba(12,0,0,0.85);
+}
+
+.hint {
+color: #777;
+font-style: italic;
+}
+
+.login {
+text-align: center;
+margin-top: 40px;
+}
+
+input {
+background: black;
+color: #ff2a2a;
+border: 1px solid #7a0000;
+padding: 12px;
+width: 260px;
+font-family: inherit;
+}
+
+button {
+background: #170000;
+color: #ff2a2a;
+border: 1px solid #7a0000;
+padding: 12px 20px;
+font-family: inherit;
+cursor: pointer;
+}
+
+button:hover {
+background: #3a0000;
+}
+
+footer {
+margin-top: 50px;
+font-size: 12px;
+color: #555;
+text-align: center;
+}
+
+.glitch {
+position: relative;
+animation: glitchMain 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+content: attr(data-text);
+position: absolute;
+left: 0;
+right: 0;
+opacity: 0.7;
+}
+
+.glitch::before {
+color: #00ffff;
+transform: translate(-2px, -1px);
+clip-path: inset(0 0 45% 0);
+}
+
+.glitch::after {
+color: #ff00ff;
+transform: translate(2px, 1px);
+clip-path: inset(55% 0 0 0);
+}
+
+@keyframes flicker {
+0% { opacity: 0.15; }
+50% { opacity: 0.35; }
+100% { opacity: 0.18; }
+}
+
+@keyframes textShake {
+0%, 100% { transform: translateX(0); }
+45% { transform: translateX(0); }
+46% { transform: translateX(-2px); }
+47% { transform: translateX(2px); }
+48% { transform: translateX(0); }
+}
+
+@keyframes glitchMain {
+0%, 90%, 100% { transform: none; }
+91% { transform: skewX(5deg); }
+92% { transform: skewX(-5deg); }
+93% { transform: none; }
+}
