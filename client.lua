@@ -22,18 +22,9 @@ local function closeTerminal()
     exports['bablo-animations']:cancelAnimation()
 end
 
--- /smile — open the terminal
-RegisterCommand('smile', function()
-    openTerminal()
-end, false)
-
--- /smileclose — fallback close from console/keybind
-RegisterCommand('smileclose', function()
-    closeTerminal()
-end, false)
-
--- Suggested keybind: open with F7 (players can rebind in pause menu).
-RegisterKeyMapping('smile', 'SMILE Terminal öffnen', 'keyboard', 'F7')
+-- Kein Command und kein Keybind: Das Terminal wird AUSSCHLIESSLICH über das
+-- Item 'smile_terminal' geöffnet (ox_inventory client export -> openTerminal).
+-- Geschlossen wird über ESC (NUI-Callback unten) bzw. onResourceStop.
 
 -- NUI -> Lua: the page asks to close (ESC pressed in nui.js).
 RegisterNUICallback('close', function(_, cb)
