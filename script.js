@@ -52,10 +52,16 @@ const result = document.getElementById("cameraResult");
 
 if (action === "reset") {
 cameraSequence = [];
+
+```
 text.innerHTML =
-"█ █ █ █ █ █<br>7 1 8 0<br>2 0 4<br>5 3<br>█ █ █ █ █ █";
+  "█ █ █ █ █ █<br>7 0 7 3<br>ECL █ █ █ █ █<br>LEVEL █<br>█ █ █ █ █ █";
+
 result.innerHTML = "FEED RESET // ERINNERUNG GELÖSCHT";
+result.style.color = "#ff2a2a";
 return;
+```
+
 }
 
 cameraSequence.push(action);
@@ -64,27 +70,48 @@ const sequence = cameraSequence.join("-");
 
 if (sequence === "zoom") {
 text.innerHTML =
-"█ █ █ MOT █ █<br>7 1 8 0<br>2 0 4<br>5 3<br>SMILE IS THE WAY";
-result.innerHTML = "ZOOM AKTIV // ZU VIELE DETAILS // NICHT ALLES IST WAHR";
+"█ █ █ ECL █ █<br>7 0 7 3<br>ECLIP █ █ █<br>LEVEL 7<br>SMILE IS THE WAY";
+
+```
+result.innerHTML =
+  "ZOOM AKTIV // DIE STRASSE BEGINNT SICH ZU ERINNERN";
+```
+
 }
 
 else if (sequence === "zoom-focus") {
 text.innerHTML =
-"MOTEL █ █ █<br>VENTURA █ █<br>ROOM █ █ █<br>SMILE IS THE WAY<br>THE BLOOD OPENS";
-result.innerHTML = "BILD GESCHÄRFT // DER KÖDER WIRD SICHTBAR";
+"PLZ // 7073<br>ECLIPSE ███████<br>LEVEL // 7<br>████HOUSE<br>THE BLOOD OPENS";
+
+```
+result.innerHTML =
+  "BILD GESCHÄRFT // DER KÖDER WIRD SICHTBAR";
+```
+
 }
 
 else if (sequence === "zoom-focus-light") {
 text.innerHTML =
-"MOTEL // VENTURA PLACE<br>ROOM // 204<br>FRAME // 241<br>SUBJECT // STILL SMILING";
-result.innerHTML = "BELICHTUNG STABIL // DER RAUM WURDE GEFUNDEN";
+"PLZ // 7073<br>ECLIPSE BOULEVARD<br>LEVEL // 7<br>PENTHOUSE";
+
+```
+result.innerHTML =
+  "AUFNAHME WIEDERHERGESTELLT // DAS LÄCHELN WARTETE OBEN";
+```
+
 }
 
 else {
 cameraSequence = [];
+
+```
 text.innerHTML =
-"FEED CORRUPTED<br>FALSCHE REIHENFOLGE<br>█ █ █ █ █ █<br>RESET REQUIRED";
-result.innerHTML = "FEHLER // DIE AUFNAHME HAT ZURÜCKGELÄCHELT";
+  "FEED CORRUPTED<br>FALSCHE REIHENFOLGE<br>█ █ █ █ █ █<br>RESET REQUIRED";
+
+result.innerHTML =
+  "FEHLER // DIE AUFNAHME HAT ZURÜCKGELÄCHELT";
+```
+
 }
 
 result.style.color = "#ff2a2a";
@@ -94,10 +121,10 @@ function checkArchive2Password() {
 const pass = document.getElementById("password").value.trim().toUpperCase();
 const result = document.getElementById("result");
 
-if (pass === "ROOM204" || pass === "ZIMMER204") {
+if (pass === "PENTHOUSE") {
 window.location.href = "archive3.html";
 } else {
-result.innerHTML = "FALSCH // DIE TÜR BLEIBT ZU";
+result.innerHTML = "FALSCH // DIE HÖHE ANTWORTET NICHT";
 result.style.color = "#ff0000";
 }
 }
