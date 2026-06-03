@@ -118,13 +118,13 @@ result.style.color = "#ff2a2a";
 }
 
 function checkArchive2Password() {
-const pass = document.getElementById("password").value.trim().toUpperCase();
-const result = document.getElementById("result");
+  const pass = document.getElementById("password").value.trim().toUpperCase();
+  const result = document.getElementById("result");
 
-if (pass === "PENTHOUSE") {
-window.location.href = "archive3.html";
-} else {
-result.innerHTML = "FALSCH // DIE HÖHE ANTWORTET NICHT";
-result.style.color = "#ff0000";
-}
+  if (pass === "PENTHOUSE") {
+    window.location.href = "archive3.html";
+  } else {
+    result.innerHTML = "FALSCH // DIE HÖHE ANTWORTET NICHT";
+    result.style.color = "#ff0000";
+  }
 }
