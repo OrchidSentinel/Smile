@@ -30,12 +30,12 @@
   var root = document.documentElement;
 
   function show() {
-    root.style.visibility = 'visible';
+    root.style.display = '';
     try { sessionStorage.setItem('smileOpen', '1'); } catch (e) {}
   }
 
   function hide() {
-    root.style.visibility = 'hidden';
+    root.style.display = 'none';
     try { sessionStorage.removeItem('smileOpen'); } catch (e) {}
   }
 
@@ -44,7 +44,7 @@
   var wasOpen = false;
   try { wasOpen = sessionStorage.getItem('smileOpen') === '1'; } catch (e) {}
   if (!wasOpen) {
-    root.style.visibility = 'hidden';
+    root.style.display = 'none';
   }
 
   function requestClose() {

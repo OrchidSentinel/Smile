@@ -26,3 +26,6 @@ files {
 
 client_script 'client.lua'
 server_script 'server.lua'
+
+-- bablo-animations liefert die "tablet2"-Halteanimation beim Öffnen.
+dependency 'bablo-animations'

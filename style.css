@@ -1,42 +1,93 @@
-*{box-sizing:border-box}
+*{box-sizing:border-box;scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{display:none}
+
+/* html + body bleiben KOMPLETT transparent.
+   Wichtig: hätte body einen Background, würde Chromium/CEF ihn auf den
+   gesamten Viewport projizieren (background propagation). Deshalb trägt
+   ausschließlich .tablet den sichtbaren Hintergrund. */
+html,body{
+    margin:0;
+    width:100%;height:100%;
+    background:transparent;
+    overflow:hidden;
+}
 body{
-margin:0;min-height:100vh;background:#050005;color:#eee;font-family:"Courier New",monospace;overflow-x:hidden;
-background:
-radial-gradient(circle at 20% 20%,rgba(255,0,90,.35),transparent 25%),
-radial-gradient(circle at 80% 10%,rgba(0,255,255,.22),transparent 28%),
-radial-gradient(circle at 50% 80%,rgba(255,230,0,.18),transparent 30%),
-linear-gradient(180deg,#090009,#000);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Courier New",monospace;
 }
-body:before{
-content:"";position:fixed;inset:0;pointer-events:none;z-index:20;
-background:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,transparent 2px,transparent 5px);
-animation:scan .12s infinite;
+
+/* ── Tablet-Frame ─────────────────────────────────────────────────────────── */
+.tablet{
+    position:relative;
+    width:80vw;
+    height:80vh;
+    overflow-y:auto;
+    overflow-x:hidden;
+    color:#eee;
+
+    /* Hintergrund */
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,0,90,.35),transparent 25%),
+        radial-gradient(circle at 80% 10%,rgba(0,255,255,.22),transparent 28%),
+        radial-gradient(circle at 50% 80%,rgba(255,230,0,.18),transparent 30%),
+        linear-gradient(180deg,#090009,#000);
+
+    /* Tablet-Bezel */
+    border-radius:22px;
+    border:2px solid rgba(255,0,120,.6);
+    box-shadow:
+        0 0 0 7px #0d000d,
+        0 0 0 10px #1c001c,
+        0 0 70px rgba(255,0,100,.55),
+        inset 0 0 60px rgba(255,0,0,.12);
 }
-body:after{
-content:":) SMILE :) SMILE :) :) :)";position:fixed;left:-10%;top:8%;width:120%;font-size:90px;letter-spacing:20px;color:rgba(255,255,255,.035);z-index:0;transform:rotate(-12deg);pointer-events:none;
+
+/* Scan-Linien — relativ zum Tablet */
+.tablet:before{
+    content:"";position:absolute;inset:0;pointer-events:none;z-index:20;
+    border-radius:inherit;
+    background:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,transparent 2px,transparent 5px);
+    animation:scan .12s infinite;
 }
-.noise,.blood,.smiles{position:fixed;inset:0;pointer-events:none}
+.tablet:after{
+    content:":) SMILE :) SMILE :) :) :)";position:absolute;left:-10%;top:8%;width:120%;font-size:90px;letter-spacing:20px;color:rgba(255,255,255,.035);z-index:0;transform:rotate(-12deg);pointer-events:none;
+}
+
+/* Overlay-Ebenen — relativ zum Tablet, kein Viewport-Overflow */
+.noise,.blood,.smiles{position:absolute;inset:0;pointer-events:none;border-radius:inherit}
 .noise{z-index:10;opacity:.25;background-image:repeating-radial-gradient(circle at 10% 20%,rgba(255,255,255,.08) 0,transparent 2px),repeating-radial-gradient(circle at 80% 70%,rgba(255,0,120,.1) 0,transparent 3px);animation:flicker .08s infinite}
 .blood{z-index:5;background:radial-gradient(circle at 12% -5%,rgba(255,0,0,.55) 0 10px,transparent 12px),radial-gradient(circle at 42% -8%,rgba(170,0,0,.5) 0 8px,transparent 10px),radial-gradient(circle at 78% -4%,rgba(255,0,60,.45) 0 12px,transparent 14px);animation:drip 5s infinite alternate}
 .smiles{z-index:1;color:rgba(255,255,255,.05);font-size:22px;line-height:2;word-spacing:18px;padding:20px;animation:float 8s infinite alternate}
 .smiles:before{content:":) :) SMILE :) :D :) SMILE :) :) BLOOD :) ESSENCE :) SMILE :) :) :)"}
-.terminal{position:relative;z-index:2;max-width:1000px;margin:45px auto;padding:34px;background:rgba(10,0,12,.82);border:1px solid rgba(255,0,120,.55);box-shadow:0 0 40px rgba(255,0,100,.35),inset 0 0 60px rgba(255,0,0,.12)}
-h1{margin:0;text-align:center;font-size:72px;letter-spacing:12px;color:#fff;text-shadow:3px 0 #00ffff,-3px 0 #ff00ff,0 0 18px red;animation:pulse 1.6s infinite}
+
+/* Terminal-Inhalt */
+.terminal{position:relative;z-index:2;width:100%;max-width:720px;padding:32px;margin:40px auto;background:rgba(10,0,12,.82);border:1px solid rgba(255,0,120,.55);box-shadow:0 0 40px rgba(255,0,100,.35),inset 0 0 60px rgba(255,0,0,.12);border-radius:8px}
+h1{margin:0;text-align:center;font-size:58px;letter-spacing:10px;color:#fff;text-shadow:3px 0 #00ffff,-3px 0 #ff00ff,0 0 18px red;animation:pulse 1.6s infinite}
 h2{color:#ff2b8a;text-shadow:0 0 10px #ff0066}
 .subtitle{text-align:center;color:#aaa;letter-spacing:5px}
-p{font-size:17px;line-height:1.65}
-hr{border:0;border-top:1px solid rgba(255,0,100,.45);margin:28px 0}
-.box{margin:25px 0;padding:22px;background:linear-gradient(90deg,rgba(255,0,100,.12),rgba(0,255,255,.05),transparent),rgba(0,0,0,.5);border-left:4px solid #ff0055;border-top:1px solid rgba(255,255,255,.1)}
+p{font-size:16px;line-height:1.65}
+hr{border:0;border-top:1px solid rgba(255,0,100,.45);margin:22px 0}
+.box{margin:20px 0;padding:18px;background:linear-gradient(90deg,rgba(255,0,100,.12),rgba(0,255,255,.05),transparent),rgba(0,0,0,.5);border-left:4px solid #ff0055;border-top:1px solid rgba(255,255,255,.1)}
 .cracked{background:repeating-linear-gradient(135deg,rgba(255,0,0,.08) 0 2px,transparent 3px 10px),rgba(10,0,0,.74)}
 .red{color:#ff184f;text-shadow:0 0 10px red}
 .rainbow{background:linear-gradient(90deg,#ff004c,#ffea00,#00ffcc,#aa00ff);-webkit-background-clip:text;color:transparent;font-weight:bold;animation:hue 2s infinite}
 .distort,.small{letter-spacing:6px;color:#fff;text-shadow:2px 0 cyan,-2px 0 magenta,0 0 10px red;animation:shake .65s infinite}
 .tiny{font-size:13px;color:#888;font-style:italic}
-button,input{font-family:inherit;margin:6px;padding:13px;border:1px solid #ff0066;background:#080008;color:#fff;box-shadow:0 0 12px rgba(255,0,120,.25)}
+button,input{font-family:inherit;margin:5px;padding:10px 14px;border:1px solid #ff0066;background:#080008;color:#fff;box-shadow:0 0 12px rgba(255,0,120,.25);border-radius:4px}
 button:hover{background:#330018;box-shadow:0 0 20px rgba(255,0,120,.65);cursor:pointer}
-input{width:280px;color:#ff77aa;letter-spacing:2px}
-.camera,.screen{padding:24px;background:#030003;border:1px solid #ff0066;color:#fff;text-shadow:0 0 10px red;letter-spacing:4px;animation:shake .9s infinite}
-footer{text-align:center;color:#666;font-size:12px;margin-top:45px;letter-spacing:3px}
+input{width:240px;color:#ff77aa;letter-spacing:2px}
+.camera,.screen{padding:20px;background:#030003;border:1px solid #ff0066;color:#fff;text-shadow:0 0 10px red;letter-spacing:4px;animation:shake .9s infinite}
+footer{text-align:center;color:#666;font-size:12px;margin-top:36px;letter-spacing:3px;padding-bottom:20px}
+
+.back-btn{display:inline-block;color:#ff77aa;text-decoration:none;font-size:13px;letter-spacing:3px;opacity:.55;transition:opacity .2s;font-family:"Courier New",monospace}
+.back-btn:hover{opacity:1;text-shadow:0 0 8px #ff00aa}
+
+.hiddenSmile{position:absolute;opacity:.035;font-size:38px;color:#fff;text-decoration:none;z-index:50;cursor:pointer;text-shadow:0 0 8px #ff00aa;transition:.2s}
+.hiddenSmile:hover{opacity:1;color:#ff00cc;font-size:52px;text-shadow:0 0 18px #ff00cc,0 0 30px cyan}
+
+.smileWall{font-size:90px;text-align:center;letter-spacing:10px;animation:pulse 1s infinite}
+.smileWay{font-size:52px;text-align:center;font-weight:bold;background:linear-gradient(90deg,#ff0055,#ffee00,#00ffee,#ff00ff);-webkit-background-clip:text;color:transparent;animation:hue 1.5s infinite}
+
 @keyframes scan{50%{opacity:.4}}
 @keyframes flicker{50%{opacity:.08}}
 @keyframes drip{to{transform:translateY(45px)}}
@@ -44,39 +95,3 @@ footer{text-align:center;color:#666;font-size:12px;margin-top:45px;letter-spacin
 @keyframes pulse{50%{filter:hue-rotate(120deg) brightness(1.4)}}
 @keyframes hue{to{filter:hue-rotate(360deg)}}
 @keyframes shake{0%,100%{transform:none}25%{transform:translate(1px,-1px)}50%{transform:translate(-2px,1px)}75%{transform:translate(2px,2px)}}
-
-.hiddenSmile{
-position:absolute;
-opacity:0.035;
-font-size:42px;
-color:#fff;
-text-decoration:none;
-z-index:50;
-cursor:pointer;
-text-shadow:0 0 8px #ff00aa;
-transition:.2s;
-}
-
-.hiddenSmile:hover{
-opacity:1;
-color:#ff00cc;
-font-size:58px;
-text-shadow:0 0 18px #ff00cc,0 0 30px cyan;
-}
-
-.smileWall{
-font-size:120px;
-text-align:center;
-letter-spacing:12px;
-animation:pulse 1s infinite;
-}
-
-.smileWay{
-font-size:64px;
-text-align:center;
-font-weight:bold;
-background:linear-gradient(90deg,#ff0055,#ffee00,#00ffee,#ff00ff);
--webkit-background-clip:text;
-color:transparent;
-animation:hue 1.5s infinite;
-}

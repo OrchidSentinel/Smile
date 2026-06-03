@@ -9,6 +9,8 @@ local function openTerminal()
     isOpen = true
     SetNuiFocus(true, true)
     SendNUIMessage({ action = 'open' })
+    -- Ped hält sichtbar ein Tablet (bablo-animations: "tablet2").
+    exports['bablo-animations']:playAnimation(PlayerPedId(), 'tablet2')
 end
 
 local function closeTerminal()
@@ -16,6 +18,8 @@ local function closeTerminal()
     isOpen = false
     SetNuiFocus(false, false)
     SendNUIMessage({ action = 'close' })
+    -- Tablet-Animation wieder beenden.
+    exports['bablo-animations']:cancelAnimation()
 end
 
 -- /smile — open the terminal
@@ -37,6 +41,15 @@ RegisterNUICallback('close', function(_, cb)
     cb({ ok = true })
 end)
 
+-- Beim Start: NUI verstecken und sessionStorage zurücksetzen (CEF kann es über Restarts behalten).
+AddEventHandler('onResourceStart', function(res)
+    if res == GetCurrentResourceName() then
+        isOpen = false
+        SetNuiFocus(false, false)
+        SendNUIMessage({ action = 'close' })
+    end
+end)
+
 -- Safety: always release focus if the resource stops while open.
 AddEventHandler('onResourceStop', function(res)
     if res == GetCurrentResourceName() then
@@ -44,6 +57,7 @@ AddEventHandler('onResourceStop', function(res)
     end
 end)
 
--- Export so other resources can open the terminal (e.g. a usable laptop prop).
+-- Export: wird von ox_inventory aufgerufen wenn das Item 'smile_terminal' benutzt wird.
+-- Kann auch von anderen Resources direkt genutzt werden.
 exports('openSmileTerminal', openTerminal)
 exports('closeSmileTerminal', closeTerminal)
