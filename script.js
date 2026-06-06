@@ -80,7 +80,7 @@ else if(s==="PD-FIB-DOJ-MD"){h1=true;out("hardResult","MUSTER BESTANDEN // WENN 
 else{hard=[];h1=false;document.getElementById("hardDisplay").innerHTML="MUSTER // gelöscht";out("hardResult","FALSCH // DIE BEHÖRDEN SPRECHEN NICHT IN DIESER REIHENFOLGE")}
 }
 function liePick(x){if(x==="B"){h2=true;out("lieResult","WAHR // SMILE BRAUCHT KEINEN KÖRPER, NUR EINEN TRÄGER")}else{h2=false;out("lieResult","LÜGE // ZU EINFACH")}}
-function echoCheck(){const e=document.getElementById("echo").value.trim().toUpperCase().replace(/\s+/g,"");if(e==="NERVENREST"){h3=true;out("echoResult","ECHO AKZEPTIERT // NERVENREST BLEIBT")}else{h3=false;out("echoResult","FALSCH // DAS ECHO LACHT")}}
+function echoCheck(){const e=document.getElementById("echo").value.trim().toUpperCase().replace(/\s+/g,"");if(e==="NICHTS"){h3=true;out("echoResult","ECHO AKZEPTIERT // NERVENREST BLEIBT")}else{h3=false;out("echoResult","FALSCH // DAS ECHO LACHT")}}
 function checkArchive5Password(){
 if(!h1||!h2||!h3){out("result","ZUGRIFF VERWEIGERT // TESTS UNVOLLSTÄNDIG");return}
 if(val()==="HUMANLABS"){location.href="archive6.html"}else{out("result","FALSCH // DER LETZTE ORT IST KEIN MENSCHLICHER ORT")}
